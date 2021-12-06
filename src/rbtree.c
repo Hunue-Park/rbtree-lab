@@ -18,6 +18,7 @@ void freenode(node_t *p) {
 
 void delete_rbtree(rbtree *t) {
   // TODO: reclaim the tree nodes's memory
+  freenode(t->root);
   free(t);
 }
 
