@@ -8,6 +8,14 @@ rbtree *new_rbtree(void) {
   return p;
 }
 
+void freenode(node_t *p) {
+    if (p == NULL) return;
+ 
+    freenode(p->left);
+    freenode(p->right);
+    free(p);
+}
+
 void delete_rbtree(rbtree *t) {
   // TODO: reclaim the tree nodes's memory
   free(t);
