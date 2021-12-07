@@ -314,11 +314,8 @@ int main(void) {
   test_erase_root(128);
   test_minmax_suite();
   test_to_array_suite();
-  printf("passed until array\n");
   test_distinct_values();
-  printf("passed until distinct\n");
   test_duplicate_values();
-  printf("passed until duplicate\n");
   test_multi_instance();
   printf("Passed all tests!\n");
 }
