@@ -22,9 +22,10 @@ void freenode(node_t *p, rbtree *t) {
 }
 
 void delete_rbtree(rbtree *t) {
-    if (t == t->nil) return;
+    if (t == NULL) return;
     // TODO: reclaim the tree nodes's memory
     freenode(t->root,t);
+    free(t->nil);
     free(t);
 }
 
@@ -49,7 +50,6 @@ void left_rotate(rbtree *t, node_t *x) {
     y->left = x;
     x->parent = y;
     return;
-
 }
 
 void right_rotate(rbtree *t, node_t *x) {
