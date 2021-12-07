@@ -27,6 +27,8 @@ void delete_rbtree(rbtree *t) {
   free(t);
 }
 
+//search 구현해야함
+
 void left_rotate(rbtree *t, node_t *x) {
     node_t *y = x->right;
     x->right = y->left;
@@ -187,16 +189,30 @@ node_t *rbtree_find(const rbtree *t, const key_t key) {
 
 node_t *rbtree_min(const rbtree *t) {
   // TODO: implement find
-  return t->root;
+  node_t *r = t->root;
+  if (r == t->nil) return r;
+  while (r->left != t->nil) {
+    r = r -> left;
+  }
+  return r;
 }
 
 node_t *rbtree_max(const rbtree *t) {
   // TODO: implement find
-  return t->root;
+  node_t *r = t->root;
+  if (r == t->nil) return r;
+  while (r->right != t->nil) {
+    r = r -> right;
+  }
+  return r;
 }
 
 int rbtree_erase(rbtree *t, node_t *p) {
-  // TODO: implement erase
+  p = t -> root;
+  t -> root = t -> nil;
+  free(p);
+//   p-> left = t -> nil;
+//   p-> right = t -> nil;
   return 0;
 }
 
